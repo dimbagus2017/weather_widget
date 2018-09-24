@@ -1,19 +1,33 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+
 import './App.css';
+import RadioButtons from './components/RadioButtons';
+import Widget from './components/Widget';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div>
+        <div id="main" className="container">
+          <div className="row">
+            <div className="col-lg-6">
+              <label htmlFor="title">Title</label>
+              <input id="title"
+                type="text"
+                placeholder=" Title of widget"
+              />
+              <RadioButtons />
+              <RadioButtons />
+
+            </div>
+
+            <div className="col-lg-6">
+              <Widget />
+            </div>
+          </div>
+        </div>
       </div>
+
     );
   }
 }
