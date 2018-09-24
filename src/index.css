@@ -2,8 +2,110 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  font-family: Lucida Grande;
 }
+
+input,
+label {
+	display: block;
+}
+
+#tempArea input, #tempArea label{
+    display: inline;
+    margin-bottom: 10px;
+}
+
+#windArea input, #windArea label{
+    display: inline;
+    margin-bottom: 10px;
+}
+
+div#main {
+	background:#F2F2F2;
+    padding: 1vw 2vw;
+    width:60%;
+}
+
 .spaceradio
 {
 	margin-right:10px;
+}
+
+img
+{
+    width:84% !important;
+    height:100% !important;
+    margin-left: 20%;
+}
+
+.divider{
+    border-left:1px solid lightgrey;
+}
+
+.widget{
+    box-shadow: 1px 2px 1px lightgray;
+    background-color: white;
+    margin-left:10px;
+    height: 100%;
+    width:90%;
+    position: absolute;
+
+}
+
+.title
+{
+    margin-left:30px;
+    padding:10px;
+    position: absolute;
+}
+
+.left
+{
+    margin-left:20px;
+    padding:10px;
+    vertical-align: top;
+    margin-bottom: 10px;
+}
+
+.text
+{
+    height: 40px;
+    width:100%;
+}
+
+.top
+{
+    margin-top:15px;
+    margin-bottom: 15px;
+}
+
+.widgettop{
+    margin-top:15px;
+}
+
+.topdegrees
+{
+    margin-top:40px;
+}
+
+.topicon
+{
+    margin-top:20px;
+}
+
+.degrees{
+    font-size:xx-large;
+    font-weight: bold;
+}
+
+.wind{
+    font-size: small;
+    font-weight: bold;
+}
+
+.hline {
+    border-top: 4px solid blue;
+    padding: 0 !important;
+    margin-bottom: 10px;
+    width:60%;
 }
