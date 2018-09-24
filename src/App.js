@@ -1,20 +1,39 @@
 import React, { Component } from 'react';
+import Widget from './components/Widget'
+import axios from 'axios';
 import RadioButtons from './components/RadioButtons';
-import Widget from './components/Widget';
-
 class App extends Component {
-  
   constructor() {
     super();
     this.state = { degrees: 0, title: '', lat: 0, lon: 0, unitsType: 'metric', wind: false, speed: 0, location: '' };
   }
 
+  componentDidMount() {
+    this.handleTempChange();
+  }
+
   handleTempChange = () => {
     this.setState({ 'unitsType': this.state.unitsType === 'metric' ? 'imperial' : 'metric' })
+   
+    axios("https://api.ipdata.co/?api-key=test").then((data) => 
+    {
+      this.setState({ lon: data.data.longitude, lat: data.data.latitude });
+      axios('http://localhost:4000/weather/' + this.state.lat + '/' + this.state.lon + "/" + this.state.unitsType)
+        .then((json) => 
+        {
+          debugger;
+          this.setState({
+            icon: json.data.weather[0].icon,
+            degrees: json.data.main.temp,
+            wind: this.state.wind,
+            speed: json.data.wind.speed,
+            location: json.data.name
+          })
+        });
+      });
   }
 
   handleTitleChange = () => {
-    debugger;
     this.setState({ 'title': this.val.value.toUpperCase() });
   }
 
@@ -24,10 +43,11 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <div id="main" className="container">
+      <div className="left">
+        <hr className="container hline"></hr>
+        <div id="main" className="container border">
           <div className="row">
-            <div className="col-lg-6">
+            <div className="col-lg-6 top">
               <label htmlFor="title">Title</label>
               <input id="title"
                 type="text"
@@ -36,7 +56,8 @@ class App extends Component {
                 ref={(node) => { this.val = node }}
                 value={this.state.value}
                 name="title"
-                />
+                className="text" />
+
               <RadioButtons
                 id={'tempArea'}
                 labelText={'Temperature'}
@@ -58,11 +79,9 @@ class App extends Component {
                 radio1Value='On'
                 radio2Value='Off'
               />
-
             </div>
-
-            <div className="col-lg-6">
-            <Widget
+            <div className="col-lg-6 divider top">
+              <Widget
                 degrees={this.state.degrees}
                 unitsType={this.state.unitsType}
                 title={this.state.title}
@@ -75,7 +94,6 @@ class App extends Component {
           </div>
         </div>
       </div>
-
     );
   }
 }
