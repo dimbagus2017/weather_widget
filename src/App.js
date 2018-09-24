@@ -16,8 +16,18 @@ class App extends Component {
                 type="text"
                 placeholder=" Title of widget"
               />
-              <RadioButtons />
-              <RadioButtons />
+              <RadioButtons
+                id={'tempArea'}
+                labelText={'Temperature'}
+                value1={'metric'}
+                value2={'imperial'}
+              />
+              <RadioButtons
+                id={'windArea'}
+                labelText={'Wind'}
+                value1={true}
+                value2={false}
+              />
 
             </div>
 
