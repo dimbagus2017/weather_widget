@@ -11,13 +11,13 @@ export default class Widget extends Component {
         const { title, icon, degrees, wind, location, unitsType, speed } = this.props;
         return (
             <div className="widget">
-                <div className="row">
+                <div className="row widgettop">
                     <div className="col-lg-12 title">{title}</div>
                 </div>
 
                 <div className="row widgettop">
                     <div className="col-lg-6 topicon">
-                        <img src={'http://openweathermap.org/img/w/' + icon + '.png'}></img>
+                        <img src={'http://openweathermap.org/img/w/' + icon + '.png' }></img>
                     </div>
                     <div className="col-lg-6 topdegrees">
                         {location}

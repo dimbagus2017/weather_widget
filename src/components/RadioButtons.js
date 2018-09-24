@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 
 export default ({id, labelText, value1, value2, stateVar, handleChange, radio1Value, radio2Value}) => {
 return (

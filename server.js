@@ -2,15 +2,12 @@
 const express = require("express");
 const cors = require("cors");
 const  bodyParser = require('body-parser');
-
 const app = express();
-
 const router = express.Router();
 const fetch = require('node-fetch');
 
 app.use(cors());
 app.use(bodyParser.json());
-
 
 router.route('/weather/:lat/:lon/:unitsType').get((req, res) => {
     const lat = req.params.lat;
@@ -22,11 +19,9 @@ router.route('/weather/:lat/:lon/:unitsType').get((req, res) => {
     fetch(weatherUrl+ lat +'&lon=' + lon +'&appid='+APPKEY+'&units='+ unitsType)
     .then(res => res.json())
     .then(json =>{
-        //console.log(json);
         res.send(json);
     } );
 });
-
 
 app.use('/', router);
 app.listen(4000, () => console.log('Express server running on port 4000'));
