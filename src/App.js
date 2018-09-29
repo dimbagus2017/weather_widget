@@ -15,9 +15,9 @@ class App extends Component {
   handleTempChange = () => {
     this.setState({ 'unitsType': this.state.unitsType === 'metric' ? 'imperial' : 'metric' })
    
-    axios("https://api.ipdata.co/?api-key=test").then((data) => 
-    {
-      this.setState({ lon: data.data.longitude, lat: data.data.latitude });
+    // axios("https://api.ipdata.co/?api-key=test").then((data) => 
+    // {
+    //   this.setState({ lon: data.data.longitude, lat: data.data.latitude });
       axios('http://localhost:4000/weather/' + this.state.lat + '/' + this.state.lon + "/" + this.state.unitsType)
         .then((json) => 
         {
@@ -30,7 +30,7 @@ class App extends Component {
             location: json.data.name
           })
         });
-      });
+     // });
   }
 
   handleTitleChange = () => {

@@ -14,7 +14,7 @@ router.route('/weather/:lat/:lon/:unitsType').get((req, res) => {
     const lon = req.params.lon;
     const unitsType = req.params.unitsType;
     const APPKEY = 'c7b5b62a01a84a2d274930a57e180950';
-    const weatherUrl='http://api.openweathermap.org/data/2.5/weather?lat=';
+    const weatherUrl='http://api.openweathermap.org/data/2.5/weather?q=Sydney&lat=';
     
     fetch(weatherUrl+ lat +'&lon=' + lon +'&appid='+APPKEY+'&units='+ unitsType)
     .then(res => res.json())
